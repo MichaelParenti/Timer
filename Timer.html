@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: radial-gradient(black, #333, #666, grey);
+        color: white;
+        font-size: large;
+        text-align: center;    
+    }
+
+    .colon{
+        font-size: 25em;
+    }
+
+    /*label {
+        font-size: 25em;
+        }*/
+   
+</style>
+<center>
+<body> 
+    <br><br><br>
+
+    <div class="colon"><label id="seconds">00</label>:<label id="hundredths">00</label></div>
+
+   <script>
+var secondsLabel = document.getElementById("seconds");
+var hundredthsLabel = document.getElementById("hundredths");
+var totalMilliSeconds = 0;
+setInterval(setTime, 10);
+
+function setTime() {
+  if( secondsLabel.innerHTML < 7 || hundredthsLabel.innerHTML < 53){
+  ++totalMilliSeconds;
+  hundredthsLabel.innerHTML = pad(totalMilliSeconds % 100);
+  secondsLabel.innerHTML = pad(parseInt(totalMilliSeconds / 100));
+  }   
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+   </script>
+</center>
+</body>
+</html>
